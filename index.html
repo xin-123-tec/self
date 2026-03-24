@@ -18,7 +18,18 @@
         <a href="#projects">项目</a>
         <a href="#contact">联系</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题">🌙 深色</button>
+      <div class="theme-controls">
+        <select class="theme-select" id="modeSelect" aria-label="亮暗模式">
+          <option value="system">跟随系统</option>
+          <option value="light">浅色模式</option>
+          <option value="dark">深色模式</option>
+        </select>
+        <select class="theme-select" id="paletteSelect" aria-label="主题风格">
+          <option value="sakura">樱花粉</option>
+          <option value="ocean">海洋蓝</option>
+          <option value="minimal">极简黑</option>
+        </select>
+      </div>
     </header>
 
     <main class="page">

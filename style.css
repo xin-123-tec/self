@@ -22,6 +22,21 @@ body.dark {
   --shadow: 0 18px 42px rgba(5, 9, 30, 0.48);
 }
 
+body.palette-sakura {
+  --accent: #c97cff;
+  --accent-2: #ff90c2;
+}
+
+body.palette-ocean {
+  --accent: #3a8dff;
+  --accent-2: #39c6ff;
+}
+
+body.palette-minimal {
+  --accent: #101010;
+  --accent-2: #4a4a4a;
+}
+
 * { box-sizing: border-box; }
 
 html,
@@ -78,22 +93,30 @@ body::before {
 }
 
 .top-nav nav a {
-  color: var(--muted);
+  color: var(--title);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
   transition: color 0.2s ease;
 }
 
 .top-nav nav a:hover {
-  color: var(--title);
+  color: var(--accent);
 }
 
-.theme-toggle {
+.theme-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.theme-select {
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--panel), transparent 5%);
   color: var(--text);
-  padding: 8px 12px;
-  border-radius: 999px;
+  padding: 8px 10px;
+  border-radius: 10px;
   font-size: 13px;
   cursor: pointer;
 }
@@ -238,6 +261,9 @@ body::before {
   .top-nav {
     grid-template-columns: 1fr;
     justify-items: start;
+  }
+  .top-nav nav a {
+    font-size: 16px;
   }
   .page { grid-template-columns: 1fr; }
   .profile-card { position: static; }

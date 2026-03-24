@@ -1,25 +1,43 @@
 (() => {
-  const key = "wx-theme";
+  const modeKey = "wx-theme-mode";
+  const paletteKey = "wx-theme-palette";
   const body = document.body;
-  const btn = document.getElementById("themeToggle");
-  if (!btn) return;
+  const modeSelect = document.getElementById("modeSelect");
+  const paletteSelect = document.getElementById("paletteSelect");
+  if (!modeSelect || !paletteSelect) return;
 
-  const apply = (theme) => {
-    const dark = theme === "dark";
-    body.classList.toggle("dark", dark);
-    btn.textContent = dark ? "☀️ 浅色" : "🌙 深色";
+  const applyMode = (mode) => {
+    const isSystem = mode === "system";
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const useDark = isSystem ? prefersDark : mode === "dark";
+    body.classList.toggle("dark", useDark);
   };
 
-  const saved = localStorage.getItem(key);
-  if (saved === "dark" || saved === "light") {
-    apply(saved);
-  } else {
-    apply("light");
-  }
+  const applyPalette = (palette) => {
+    body.classList.remove("palette-sakura", "palette-ocean", "palette-minimal");
+    body.classList.add(`palette-${palette}`);
+  };
 
-  btn.addEventListener("click", () => {
-    const next = body.classList.contains("dark") ? "light" : "dark";
-    localStorage.setItem(key, next);
-    apply(next);
+  const savedMode = localStorage.getItem(modeKey) || "system";
+  const savedPalette = localStorage.getItem(paletteKey) || "sakura";
+  modeSelect.value = savedMode;
+  paletteSelect.value = savedPalette;
+  applyMode(savedMode);
+  applyPalette(savedPalette);
+
+  modeSelect.addEventListener("change", () => {
+    localStorage.setItem(modeKey, modeSelect.value);
+    applyMode(modeSelect.value);
+  });
+
+  paletteSelect.addEventListener("change", () => {
+    localStorage.setItem(paletteKey, paletteSelect.value);
+    applyPalette(paletteSelect.value);
+  });
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (modeSelect.value === "system") {
+      applyMode("system");
+    }
   });
 })();
