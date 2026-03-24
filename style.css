@@ -1,0 +1,238 @@
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --line: #30363d;
+  --text: #c9d1d9;
+  --title: #f0f6fc;
+  --muted: #8b949e;
+  --accent: #2f81f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(13, 17, 23, 0.92);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  color: var(--title);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.top-nav nav {
+  display: flex;
+  gap: 14px;
+}
+
+.top-nav nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.top-nav nav a:hover {
+  color: var(--text);
+}
+
+.page {
+  width: min(1160px, 94vw);
+  margin: 28px auto 42px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+}
+
+.profile-card,
+.hero,
+.projects,
+.contact {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.profile-card {
+  position: sticky;
+  top: 82px;
+  height: fit-content;
+  padding: 18px;
+}
+
+.avatar {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid #21262d;
+  margin-bottom: 14px;
+  background: radial-gradient(circle at 30% 30%, #2f81f7, rgba(47, 129, 247, 0) 55%),
+    radial-gradient(circle at 70% 60%, #22c55e, rgba(34, 197, 94, 0) 55%),
+    #0b1220;
+}
+
+.profile-card h1 {
+  margin: 0;
+  color: var(--title);
+  font-size: 24px;
+}
+
+.id {
+  margin: 6px 0 10px;
+  color: var(--muted);
+}
+
+.tagline {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.meta {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.btn:hover {
+  border-color: #8b949e;
+}
+
+.btn-primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: #fff;
+}
+
+.content-area {
+  display: grid;
+  gap: 16px;
+}
+
+.hero,
+.projects,
+.contact {
+  padding: 20px;
+}
+
+.hero h2 {
+  margin: 0;
+  color: var(--title);
+  font-size: 28px;
+}
+
+.hero p {
+  margin: 10px 0 0;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.section-head h3,
+.contact h3 {
+  margin: 0;
+  color: var(--title);
+}
+
+.section-head span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.project-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  background: #0f141b;
+}
+
+.project-card h4 {
+  margin: 0;
+  color: var(--title);
+  font-size: 17px;
+}
+
+.project-card p {
+  margin: 8px 0 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.links a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.contact p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+  .profile-card {
+    position: static;
+  }
+}
