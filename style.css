@@ -7,6 +7,8 @@
   --muted: #6f7494;
   --accent: #6d76ff;
   --accent-2: #e97be8;
+  --glow-1: rgba(109, 118, 255, 0.22);
+  --glow-2: rgba(233, 123, 232, 0.2);
   --shadow: 0 14px 36px rgba(83, 90, 166, 0.16);
 }
 
@@ -54,8 +56,8 @@ body::before {
   inset: -20% -10% auto;
   height: 360px;
   z-index: 0;
-  background: radial-gradient(circle at 20% 35%, rgba(109, 118, 255, 0.22), transparent 55%),
-    radial-gradient(circle at 80% 60%, rgba(233, 123, 232, 0.2), transparent 58%);
+  background: radial-gradient(circle at 20% 35%, var(--glow-1), transparent 55%),
+    radial-gradient(circle at 80% 60%, var(--glow-2), transparent 58%);
   pointer-events: none;
 }
 
