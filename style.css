@@ -66,6 +66,8 @@ body {
 
 .profile-card,
 .hero,
+.about-more,
+.skills,
 .projects,
 .contact {
   background: var(--panel);
@@ -144,6 +146,8 @@ body {
 }
 
 .hero,
+.about-more,
+.skills,
 .projects,
 .contact {
   padding: 20px;
@@ -179,6 +183,36 @@ body {
 .section-head span {
   color: var(--muted);
   font-size: 13px;
+}
+
+.info-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+.info-list li + li {
+  margin-top: 4px;
+}
+
+.info-list strong {
+  color: var(--title);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: var(--text);
+  background: #0f141b;
 }
 
 .project-grid {
